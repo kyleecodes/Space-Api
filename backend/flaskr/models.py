@@ -2,8 +2,8 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 
 database_name = "spacetrivia"
-user = "kmfie"
-pwd = "Green"
+user = ""
+pwd = ""
 host = 'localhost'
 port = '5432'
 database_path = "postgres://{}:{}@{}:{}/{}".format(
