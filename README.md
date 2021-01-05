@@ -68,7 +68,7 @@ The data object returned by the API will contain either the response requested b
 ```
 ### Endpoints
 
-#### - /categories [GET]
+#### /categories [GET]
 
 Sample Response:
 ```
@@ -103,7 +103,7 @@ Sample Response:
   "total": 6
 }
 ```
-#### - /questions?page=1 [GET]
+#### /questions?page=1 [GET]
 
 NOTE: Only 10 questions are returned per page
 
@@ -133,7 +133,7 @@ Sample Response:
   "total": 31
 }
 ```
-##### - /questions/<int:question_id> Request Type: [DELETE]
+#### /questions/<int:question_id> Request Type: [DELETE]
 
 Sample Response:
 ```
@@ -141,28 +141,27 @@ Sample Response:
   "success": true
 }
 ```
-#### - /questions Request Type: [POST]
+#### /questions Request Type: [POST]
 
 Data: {"search": "won"}
 
 Sample Response:
-What is the smallest type of black hole?	Primordial black holes	2	1
 ```
 {
   "success": true,
   "data": [
       {
         "answer": "Primordial black holes",
-        "category": 6,
-        "difficulty": 4,
-        "id": 11,
-        "question": "Which country won the first ever soccer World Cup in 1930?"
+        "category": 1,
+        "difficulty": 2,
+        "id": 5,
+        "question": "What is the smallest type of black hole?"
       }
   ],
   "total": 1
 }
 ```
-#### - /category/<int:category_id>/questions Request Type: [GET]
+#### /category/<int:category_id>/questions Request Type: [GET]
 
 Sample Response:
 ```
@@ -170,25 +169,25 @@ Sample Response:
   "category": 1,
   "data": [
     {
-      "answer": "The Liver",
-      "category": 1,
+      "answer": "Fifty-Three",
+      "category": 3,
       "difficulty": 4,
-      "id": 20,
-      "question": "What is the heaviest organ in the human body?"
+      "id": 2,
+      "question": "How many moons does Saturn have?"
     },
     {
-      "answer": "Alexander Fleming",
-      "category": 1,
-      "difficulty": 3,
-      "id": 21,
-      "question": "Who discovered penicillin?"
+      "answer": "Fifty",
+      "category": 3,
+      "difficulty": 1,
+      "id": 13,
+      "question": "How many Earth moons can fit inside the Earth?"
     }
   ],
   "success": true,
   "total": 2
 }
 ```
-#### - /quiz/question Request Type: [POST]
+#### /quiz/question Request Type: [POST]
 
 Data: {"category": 1, "previous_questions": [23]}
 
@@ -196,11 +195,11 @@ Sample Response:
 ```
 {
   "data": {
-    "answer": "The Liver",
-    "category": 1,
-    "difficulty": 4,
-    "id": 20,
-    "question": "What is the heaviest organ in the human body?"
+    "answer": "The ISS",
+    "category": 4,
+    "difficulty": 1,
+    "id": 9,
+    "question": "What is the name of the only operating space station?"
   },
   "success": true
 }
