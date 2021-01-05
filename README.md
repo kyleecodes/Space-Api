@@ -56,9 +56,152 @@ npm start
 ## API Documentation
 
 ##### *This API follows RESTful conventions*
+API follows Restful API convenctions.
+
+The data object returned by the API will contain either the response requested by the client or a message as to why that request failed. 
+
+{
+    "success": true/false,
+    "data": "data here",
+    ...
+}
+
+#### Endpoints
+
+##### /categories [GET]
+
+Sample Response:
+
+{
+  "data": [
+    {
+      "id": 1,
+      "type": "Black Holes"
+    },
+    {
+      "id": 2,
+      "type": "Galaxies"
+    },
+    {
+      "id": 3,
+      "type": "Moons"
+    },
+    {
+      "id": 4,
+      "type": "Space Exploration"
+    },
+    {
+      "id": 5,
+      "type": "Planets"
+    },
+    {
+      "id": 6,
+      "type": "Stars"
+    }
+  ],
+  "success": true,
+  "total": 6
+}
+
+##### /questions?page=1 [GET]
+
+NOTE: Only 10 questions are returned per page
+
+Sample Response:
+
+{
+  "category": "All",
+  "data": {
+    "categories": [
+      {
+        "id": 1,
+        "type": "Black Holes"
+      },
+      ...
+    ],
+    "questions": [
+      {
+        "answer": "Primordial black holes",
+        "category": 1,
+        "difficulty": 2,
+        "id": 5,
+        "question": "What is the smallest type of black hole?"
+      },
+      ...
+    ],
+  "success": true,
+  "total": 31
+}
+
+##### /questions/<int:question_id> Request Type: [DELETE]
+
+Sample Response:
+
+{
+  "success": true
+}
+/questions Request Type: [POST]
+
+Data: {"search": "won"}
+
+Sample Response:
+What is the smallest type of black hole?	Primordial black holes	2	1
+{
+  "success": true,
+  "data": [
+      {
+        "answer": "Primordial black holes",
+        "category": 6,
+        "difficulty": 4,
+        "id": 11,
+        "question": "Which country won the first ever soccer World Cup in 1930?"
+      }
+  ],
+  "total": 1
+}
+/category/<int:category_id>/questions Request Type: [GET]
+
+Sample Response:
+
+{
+  "category": 1,
+  "data": [
+    {
+      "answer": "The Liver",
+      "category": 1,
+      "difficulty": 4,
+      "id": 20,
+      "question": "What is the heaviest organ in the human body?"
+    },
+    {
+      "answer": "Alexander Fleming",
+      "category": 1,
+      "difficulty": 3,
+      "id": 21,
+      "question": "Who discovered penicillin?"
+    }
+  ],
+  "success": true,
+  "total": 2
+}
+/quiz/question Request Type: [POST]
+
+Data: {"category": 1, "previous_questions": [23]}
+
+Sample Response:
+
+{
+  "data": {
+    "answer": "The Liver",
+    "category": 1,
+    "difficulty": 4,
+    "id": 20,
+    "question": "What is the heaviest organ in the human body?"
+  },
+  "success": true
+}
 
 ### TODO:
-- [ ] API documentation
 - [ ] input question validation
-- [ ] comment code
+- [ ] better comments for code
 - [ ] fix category naming conventions
