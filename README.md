@@ -59,19 +59,19 @@ npm start
 API follows Restful API convenctions.
 
 The data object returned by the API will contain either the response requested by the client or a message as to why that request failed. 
-
+```
 {
     "success": true/false,
     "data": "data here",
     ...
 }
+```
+### Endpoints
 
-#### Endpoints
-
-##### /categories [GET]
+#### - /categories [GET]
 
 Sample Response:
-
+```
 {
   "data": [
     {
@@ -102,13 +102,13 @@ Sample Response:
   "success": true,
   "total": 6
 }
-
-##### /questions?page=1 [GET]
+```
+#### - /questions?page=1 [GET]
 
 NOTE: Only 10 questions are returned per page
 
 Sample Response:
-
+```
 {
   "category": "All",
   "data": {
@@ -132,20 +132,22 @@ Sample Response:
   "success": true,
   "total": 31
 }
-
-##### /questions/<int:question_id> Request Type: [DELETE]
+```
+##### - /questions/<int:question_id> Request Type: [DELETE]
 
 Sample Response:
-
+```
 {
   "success": true
 }
-/questions Request Type: [POST]
+```
+#### - /questions Request Type: [POST]
 
 Data: {"search": "won"}
 
 Sample Response:
 What is the smallest type of black hole?	Primordial black holes	2	1
+```
 {
   "success": true,
   "data": [
@@ -159,10 +161,11 @@ What is the smallest type of black hole?	Primordial black holes	2	1
   ],
   "total": 1
 }
-/category/<int:category_id>/questions Request Type: [GET]
+```
+#### - /category/<int:category_id>/questions Request Type: [GET]
 
 Sample Response:
-
+```
 {
   "category": 1,
   "data": [
@@ -184,12 +187,13 @@ Sample Response:
   "success": true,
   "total": 2
 }
-/quiz/question Request Type: [POST]
+```
+#### - /quiz/question Request Type: [POST]
 
 Data: {"category": 1, "previous_questions": [23]}
 
 Sample Response:
-
+```
 {
   "data": {
     "answer": "The Liver",
@@ -200,6 +204,7 @@ Sample Response:
   },
   "success": true
 }
+```
 
 ### TODO:
 - [ ] input question validation
