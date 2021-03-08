@@ -6,8 +6,8 @@ import Search from "./Search";
 import $ from "jquery";
 
 class QuestionView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       questions: [],
       page: 1,
@@ -32,11 +32,11 @@ class QuestionView extends Component {
           totalQuestions: result.total,
           currentCategory: result.data.category,
         });
-        return;
+
       },
       error: (error) => {
         alert("Unable to load questions. Please try your request again");
-        return;
+
       },
     });
   };
@@ -74,11 +74,10 @@ class QuestionView extends Component {
           totalQuestions: result.total,
           currentCategory: result.category,
         });
-        return;
       },
       error: (error) => {
         alert("Unable to load questions. Please try your request again");
-        return;
+
       },
     });
   };

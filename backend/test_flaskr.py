@@ -8,10 +8,8 @@ from models import setup_db, Question, Category
 
 
 class TriviaTestCase(unittest.TestCase):
-    """This class represents the trivia test case"""
 
     def setUp(self):
-        """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "trivia_test"
@@ -22,11 +20,9 @@ class TriviaTestCase(unittest.TestCase):
         with self.app.app_context():
             self.db = SQLAlchemy()
             self.db.init_app(self.app)
-            # create all tables
             self.db.create_all()
 
     def tearDown(self):
-        """Executed after reach test"""
         pass
 
     def test_get_categories(self):
@@ -86,6 +82,5 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 405)
 
 
-# Make the tests conveniently executable
 if __name__ == "__main__":
     unittest.main()

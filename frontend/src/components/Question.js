@@ -25,7 +25,7 @@ class Question extends Component {
             src="delete.png"
             className="delete"
             onClick={() => this.props.questionAction("DELETE")}
-          />
+           alt={"delete button"}/>
         </div>
         <div
           className="show-answer button"

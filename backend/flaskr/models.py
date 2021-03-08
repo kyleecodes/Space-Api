@@ -7,14 +7,9 @@ pwd = ""
 host = 'localhost'
 port = '5432'
 database_path = "postgres://{}:{}@{}:{}/{}".format(
-  user, pwd, host, port, database_name
+    user, pwd, host, port, database_name
 )
 db = SQLAlchemy()
-
-'''
-setup_db(app)
-    binds a flask application and a SQLAlchemy service
-'''
 
 
 def setup_db(app, database_path=database_path):
@@ -23,11 +18,6 @@ def setup_db(app, database_path=database_path):
     db.app = app
     db.init_app(app)
     db.create_all()
-
-
-'''
-Question
-'''
 
 
 class Question(db.Model):
@@ -64,11 +54,6 @@ class Question(db.Model):
             'category': self.category,
             'difficulty': self.difficulty
         }
-
-
-'''
-Category
-'''
 
 
 class Category(db.Model):
